@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ArrowRight, Package, Truck, MapPin } from 'lucide-react';
@@ -54,7 +53,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section id="home" ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+    <section id="home" ref={heroRef} className="relative min-h-[70vh] pt-24 flex items-center justify-center overflow-hidden bg-black">
       <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-gold-500/10 rounded-full blur-3xl animate-pulse"></div>
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
       <div className="absolute top-1/2 right-1/3 w-48 h-48 bg-green-500/5 rounded-full blur-2xl animate-pulse"></div>
@@ -118,7 +117,7 @@ const Hero = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-gold-500/20 to-blue-500/20 rounded-2xl blur-xl"></div>
               <img
-                src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                src="./heroimg.png"
                 alt="Modern logistics warehouse with automated systems"
                 className="relative z-10 w-full h-96 object-cover rounded-2xl shadow-2xl"
               />
