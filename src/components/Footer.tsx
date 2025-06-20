@@ -23,12 +23,10 @@ const Footer = () => {
 
   return (
     <footer className="bg-royal-950 border-t border-slate-800/50 relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%23334155" fill-opacity="0.05"%3E%3Cpath d="M20 20c0 11.046-8.954 20-20 20v20h20v-20c11.046 0 20-8.954 20-20H20z"/%3E%3C/g%3E%3C/svg%3E')] opacity-30"></div>
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"40\" height=\"40\" viewBox=\"0 0 40 40\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"%23334155\" fill-opacity=\"0.05\"%3E%3Cpath d=\"M20 20c0 11.046-8.954 20-20 20v20h20v-20c11.046 0 20-8.954 20-20H20z\"/%3E%3C/g%3E%3C/svg%3E')] opacity-30"></div>
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-          {/* Company Info */}
           <div className="lg:col-span-1">
             <div className="flex items-center space-x-2 mb-6">
               <div className="relative">
@@ -65,7 +63,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Quick Links */}
           <div>
             <h4 className="text-lg font-semibold text-slate-100 mb-6">Quick Links</h4>
             <ul className="space-y-3">
@@ -82,7 +79,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Services */}
           <div>
             <h4 className="text-lg font-semibold text-slate-100 mb-6">Services</h4>
             <ul className="space-y-3">
@@ -96,7 +92,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact Info */}
           <div>
             <h4 className="text-lg font-semibold text-slate-100 mb-6">Contact Info</h4>
             <div className="space-y-4">
@@ -127,7 +122,6 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Newsletter */}
             <div className="mt-8 p-4 glass-effect rounded-lg">
               <h5 className="text-sm font-semibold text-slate-100 mb-2">Stay Updated</h5>
               <p className="text-xs text-slate-400 mb-3">Get logistics insights & updates</p>
@@ -145,7 +139,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom Bar */}
         <div className="py-8 border-t border-slate-800/50">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-slate-400 text-sm">

@@ -49,7 +49,6 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
-    // Here you would typically send the data to your backend
     alert('Thank you for your inquiry! We will get back to you soon.');
     setFormData({
       name: '',
@@ -85,8 +84,7 @@ const Contact = () => {
 
   return (
     <section id="contact" ref={contactRef} className="py-20 bg-gradient-to-b from-royal-900 to-royal-950 relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23334155" fill-opacity="0.1"%3E%3Cpath d="M30 30c16.569 0 30-13.431 30-30H30v30z"/%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23334155\" fill-opacity=\"0.1\"%3E%3Cpath d=\"M30 30c16.569 0 30-13.431 30-30H30v30z\"/%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
       <div className="absolute top-0 right-0 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl"></div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -100,7 +98,6 @@ const Contact = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          {/* Contact Form */}
           <div ref={formRef} className="glass-effect rounded-3xl p-8 lg:p-12 hover:bg-white/5 transition-all duration-300">
             <h3 className="text-2xl font-bold gradient-text mb-8">Send us a Message</h3>
             
@@ -200,7 +197,6 @@ const Contact = () => {
             </form>
           </div>
 
-          {/* Contact Information */}
           <div ref={infoRef} className="space-y-8">
             {contactInfo.map((info, index) => (
               <div
@@ -227,7 +223,6 @@ const Contact = () => {
               </div>
             ))}
 
-            {/* Quick Contact */}
             <div className="glass-effect rounded-2xl p-8 text-center hover:bg-white/10 transition-all duration-300 royal-glow">
               <h4 className="text-2xl font-bold gradient-text mb-4">Emergency Logistics?</h4>
               <p className="text-slate-300 mb-6">Need urgent shipping solutions? Our emergency team is ready 24/7</p>
