@@ -68,52 +68,42 @@ const Services = () => {
       icon: Truck,
       title: "Ground Transportation",
       description: "Reliable land freight services with full tracking and insurance coverage for domestic and international deliveries.",
-      features: ["Real-time GPS tracking", "Insurance included", "24/7 support", "Express delivery options"],
-      image: "https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=400&h=250&fit=crop"
+      features: ["Real-time GPS tracking", "Insurance included", "24/7 support", "Express delivery options"]
     },
     {
       icon: Package,
       title: "Air Freight",
       description: "Fast and secure air cargo services connecting major airports worldwide with premium handling.",
-      features: ["Express air delivery", "Dangerous goods certified", "Temperature controlled", "Priority handling"],
-      image: "https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=400&h=250&fit=crop"
+      features: ["Express air delivery", "Dangerous goods certified", "Temperature controlled", "Priority handling"]
     },
     {
       icon: MapPin,
       title: "Ocean Freight",
       description: "Cost-effective sea freight solutions for large shipments with comprehensive port-to-port services.",
-      features: ["Full container load", "Less container load", "Port clearance", "Door-to-door service"],
-      image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=250&fit=crop"
+      features: ["Full container load", "Less container load", "Port clearance", "Door-to-door service"]
     },
     {
       icon: ArrowUp,
       title: "Warehousing",
       description: "State-of-the-art storage facilities with inventory management and distribution services.",
-      features: ["Climate controlled", "24/7 security", "Inventory management", "Pick & pack services"],
-      image: "https://images.unsplash.com/photo-1553413077-190dd305871c?w=400&h=250&fit=crop"
+      features: ["Climate controlled", "24/7 security", "Inventory management", "Pick & pack services"]
     },
     {
       icon: ArrowDown,
       title: "Supply Chain",
       description: "End-to-end supply chain optimization with advanced analytics and consultation services.",
-      features: ["Supply chain analysis", "Cost optimization", "Risk management", "Process automation"],
-      image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&h=250&fit=crop"
+      features: ["Supply chain analysis", "Cost optimization", "Risk management", "Process automation"]
     },
     {
       icon: ArrowLeft,
       title: "Last Mile Delivery",
       description: "Efficient final delivery solutions with flexible timing and customer notification systems.",
-      features: ["Same-day delivery", "Scheduled delivery", "SMS notifications", "Proof of delivery"],
-      image: "https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=400&h=250&fit=crop"
+      features: ["Same-day delivery", "Scheduled delivery", "SMS notifications", "Proof of delivery"]
     }
   ];
 
   return (
-    <section id="services" ref={servicesRef} className="py-20 bg-gradient-to-b from-royal-950 to-royal-900 relative overflow-hidden">
-      <div className="absolute inset-0 opacity-30" style={{
-        backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23334155' fill-opacity='0.05'%3E%3Cpath d='M20 20c0 11.046-8.954 20-20 20v20h20v-20c11.046 0 20-8.954 20-20H20z'/%3E%3C/g%3E%3C/svg%3E")`
-      }}></div>
-      
+    <section id="services" ref={servicesRef} className="py-20 bg-gradient-to-b from-black to-gray-900 relative overflow-hidden">
       <div className="absolute top-1/4 left-1/3 w-80 h-80 bg-gold-500/5 rounded-full blur-3xl animate-pulse"></div>
       <div className="absolute bottom-1/4 right-1/3 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl animate-pulse"></div>
 
@@ -131,23 +121,15 @@ const Services = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="group glass-effect rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-500 hover:scale-105 hover:royal-glow cursor-pointer backdrop-blur-sm"
+              className="group glass-effect rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-500 hover:scale-105 hover:royal-glow cursor-pointer backdrop-blur-sm p-8"
             >
-              <div className="relative overflow-hidden">
-                <img 
-                  src={service.image} 
-                  alt={service.title} 
-                  className="w-full h-48 object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-royal-950/80 via-royal-950/20 to-transparent"></div>
-                <div className="absolute top-4 right-4">
-                  <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-gold-500 to-gold-600 rounded-xl group-hover:scale-110 transition-transform duration-300">
-                    <service.icon className="h-6 w-6 text-royal-950" />
-                  </div>
+              <div className="mb-6">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-gold-500 to-gold-600 rounded-xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <service.icon className="h-8 w-8 text-black" />
                 </div>
               </div>
 
-              <div className="p-8">
+              <div>
                 <h3 className="text-2xl font-bold text-slate-100 mb-3 group-hover:text-gold-400 transition-colors duration-300">
                   {service.title}
                 </h3>

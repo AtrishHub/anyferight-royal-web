@@ -6,7 +6,7 @@ import Footer from '../components/Footer';
 
 const GetQuotePage = () => {
   return (
-    <div className="min-h-screen bg-royal-950 text-slate-50 overflow-x-hidden">
+    <div className="min-h-screen bg-black text-slate-50 overflow-x-hidden">
       <Header />
       <main>
         <GetQuote />

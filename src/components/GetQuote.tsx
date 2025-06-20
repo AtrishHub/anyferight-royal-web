@@ -1,8 +1,7 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Truck, Package, MapPin, Clock, Calculator, Shield, Zap } from 'lucide-react';
+import { Calculator, Shield, Zap, Clock } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -86,11 +85,7 @@ const GetQuote = () => {
   ];
 
   return (
-    <section id="quote" ref={quoteRef} className="py-20 bg-gradient-to-b from-royal-950 to-royal-900 relative overflow-hidden min-h-screen">
-      <div className="absolute inset-0 opacity-20" style={{
-        backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23334155' fill-opacity='0.1'%3E%3Cpolygon points='50 0 60 40 100 50 60 60 50 100 40 60 0 50 40 40'/%3E%3C/g%3E%3C/svg%3E")`
-      }}></div>
-      
+    <section id="quote" ref={quoteRef} className="py-20 bg-gradient-to-b from-black to-gray-900 relative overflow-hidden min-h-screen">
       <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl animate-pulse"></div>
       <div className="absolute bottom-1/4 left-1/4 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
 
@@ -246,7 +241,7 @@ const GetQuote = () => {
 
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 text-royal-950 px-8 py-5 rounded-xl font-semibold text-lg transition-all duration-300 royal-glow hover:scale-105 transform"
+                className="w-full bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 text-black px-8 py-5 rounded-xl font-semibold text-lg transition-all duration-300 royal-glow hover:scale-105 transform"
               >
                 Get My Quote
               </button>
@@ -255,11 +250,6 @@ const GetQuote = () => {
 
           <div ref={benefitsRef} className="space-y-8">
             <div className="glass-effect rounded-2xl p-8 hover:bg-white/10 transition-all duration-500">
-              <img 
-                src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&h=300&fit=crop" 
-                alt="Logistics warehouse" 
-                className="w-full h-48 object-cover rounded-xl mb-6"
-              />
               <h3 className="text-2xl font-bold gradient-text mb-4">Why Choose Us?</h3>
               <p className="text-slate-300 mb-6">
                 With over 20 years of experience in global logistics, we deliver excellence in every shipment.
@@ -268,7 +258,7 @@ const GetQuote = () => {
                 {benefits.map((benefit, index) => (
                   <div key={index} className="flex items-center space-x-3">
                     <div className="w-10 h-10 bg-gradient-to-r from-gold-500 to-gold-600 rounded-lg flex items-center justify-center">
-                      <benefit.icon className="h-5 w-5 text-royal-950" />
+                      <benefit.icon className="h-5 w-5 text-black" />
                     </div>
                     <div>
                       <h4 className="font-semibold text-slate-100">{benefit.title}</h4>
