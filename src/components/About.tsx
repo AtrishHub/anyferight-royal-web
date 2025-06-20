@@ -11,6 +11,7 @@ const About = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const statsRef = useRef<HTMLDivElement>(null);
   const featuresRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -67,6 +68,23 @@ const About = () => {
           }
         }
       );
+
+      // Image animation
+      gsap.fromTo(imageRef.current,
+        { opacity: 0, scale: 0.8 },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: imageRef.current,
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
     }, aboutRef);
 
     return () => ctx.revert();
@@ -98,36 +116,48 @@ const About = () => {
   ];
 
   return (
-    <section id="about" ref={aboutRef} className="py-20 bg-gradient-to-b from-gray-900 to-black relative overflow-hidden">
+    <section id="about" ref={aboutRef} className="py-20 bg-black relative overflow-hidden">
       <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl animate-pulse"></div>
       <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div ref={heroRef} className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8">
-            <span className="gradient-text">About Anyferight</span>
-          </h2>
-          <p className="text-xl text-slate-300 mb-6 leading-relaxed max-w-3xl mx-auto">
-            For over 25 years, Anyferight has been at the forefront of global logistics, 
-            connecting businesses worldwide with reliable, efficient, and innovative shipping solutions.
-          </p>
-          <p className="text-lg text-slate-400 mb-8 leading-relaxed max-w-2xl mx-auto">
-            From small packages to large cargo, we handle every shipment with the same dedication 
-            to excellence that has made us a trusted partner for thousands of businesses globally.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="#contact"
-              className="bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 text-black px-8 py-4 rounded-xl font-semibold transition-all duration-300 royal-glow hover:scale-105"
-            >
-              Partner With Us
-            </a>
-            <a
-              href="#services"
-              className="glass-effect hover:bg-white/10 text-slate-100 px-8 py-4 rounded-xl font-semibold transition-all duration-300 border border-gold-400/30 hover:border-gold-400/60"
-            >
-              Our Services
-            </a>
+        <div ref={heroRef} className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
+          <div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-8">
+              <span className="gradient-text">About Anyferight</span>
+            </h2>
+            <p className="text-xl text-slate-300 mb-6 leading-relaxed">
+              For over 25 years, Anyferight has been at the forefront of global logistics, 
+              connecting businesses worldwide with reliable, efficient, and innovative shipping solutions.
+            </p>
+            <p className="text-lg text-slate-400 mb-8 leading-relaxed">
+              From small packages to large cargo, we handle every shipment with the same dedication 
+              to excellence that has made us a trusted partner for thousands of businesses globally.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a
+                href="#contact"
+                className="bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 text-black px-8 py-4 rounded-xl font-semibold transition-all duration-300 royal-glow hover:scale-105 text-center"
+              >
+                Partner With Us
+              </a>
+              <a
+                href="#services"
+                className="glass-effect hover:bg-white/10 text-slate-100 px-8 py-4 rounded-xl font-semibold transition-all duration-300 border border-gold-400/30 hover:border-gold-400/60 text-center"
+              >
+                Our Services
+              </a>
+            </div>
+          </div>
+
+          <div ref={imageRef} className="relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-gold-500/20 to-blue-500/20 rounded-2xl blur-xl"></div>
+            <img
+              src="https://images.unsplash.com/photo-1494412651409-8963ce7935a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="Global logistics operations center"
+              className="relative z-10 w-full h-96 object-cover rounded-2xl shadow-2xl"
+            />
+            <div className="absolute inset-0 bg-black/30 rounded-2xl z-20"></div>
           </div>
         </div>
 
