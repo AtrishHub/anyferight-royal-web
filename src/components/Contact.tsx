@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, X } from 'lucide-react';
 import emailjs from 'emailjs-com';
 
 const Contact = () => {
@@ -15,6 +15,8 @@ const Contact = () => {
     service: '',
     message: ''
   });
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
+  const phoneNumber = "+12898138987";
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -80,6 +82,14 @@ const Contact = () => {
     }
   };
 
+  const handleEmergencyClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    const isDesktop = !/Mobi|Android/i.test(navigator.userAgent);
+    if (isDesktop) {
+      e.preventDefault();
+      setIsPopupVisible(true);
+    }
+  };
+
   const contactInfo = [
     {
       icon: MapPin,
@@ -89,7 +99,7 @@ const Contact = () => {
     {
       icon: Phone,
       title: "Phone Support",
-      details: ["+1 9099721106 "]
+      details: [`${phoneNumber} `]
     },
     {
       icon: Mail,
@@ -250,7 +260,8 @@ const Contact = () => {
               <h4 className="text-2xl font-bold gradient-text mb-4">Emergency Logistics?</h4>
               <p className="text-slate-300 mb-6">Need urgent shipping solutions? Our emergency team is ready 24/7</p>
               <a
-                href="tel:+19099721106"
+                href={`tel:${phoneNumber}`}
+                onClick={handleEmergencyClick}
                 className="inline-block bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 hover:scale-105"
               >
                 Call Emergency Line
@@ -259,6 +270,33 @@ const Contact = () => {
           </div>
         </div>
       </div>
+
+      {isPopupVisible && (
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 transition-opacity duration-300">
+          <div className="bg-royal-950 p-8 rounded-2xl shadow-2xl text-center relative border border-gold-500/30 w-11/12 max-w-md">
+            <button
+              onClick={() => setIsPopupVisible(false)}
+              className="absolute top-3 right-3 text-slate-500 hover:text-gold-400 transition-colors"
+              aria-label="Close popup"
+            >
+              <X className="h-6 w-6" />
+            </button>
+            <h3 className="text-xl font-bold gradient-text mb-4">Emergency Contact</h3>
+            <p className="text-slate-300 mb-6">For immediate assistance, please call the number below.</p>
+            <div className="bg-royal-900/50 p-4 rounded-lg border border-slate-700">
+              <p className="text-3xl font-bold text-white tracking-widest">
+                {phoneNumber}
+              </p>
+            </div>
+            <a 
+              href={`tel:${phoneNumber}`}
+              className="mt-6 inline-block bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 text-royal-950 px-6 py-3 rounded-lg font-semibold transition-all duration-200 hover:scale-105"
+            >
+              Call Now
+            </a>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
