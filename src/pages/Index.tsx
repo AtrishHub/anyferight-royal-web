@@ -9,6 +9,7 @@ import About from '../components/About';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 
+
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
 

@@ -1,9 +1,34 @@
-
 import React from 'react';
 import { Truck, MapPin, Mail, Phone } from 'lucide-react';
+import emailjs from 'emailjs-com';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const [subscriberEmail, setSubscriberEmail] = React.useState('');
+  const [loading, setLoading] = React.useState(false);
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID1;
+      const USER_ID = import.meta.env.VITE_EMAILJS_USER_ID;
+      await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        { email: subscriberEmail },
+        USER_ID
+      );
+      alert('Thank you for subscribing! You will now receive updates.');
+      setSubscriberEmail('');
+    } catch (error) {
+      console.error('EmailJS error:', error);
+      alert('Sorry, there was an error subscribing. Please try again later.');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const quickLinks = [
     { name: 'Home', href: '#home' },
@@ -100,17 +125,17 @@ const Footer = () => {
               <div className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-gold-400 mt-1 flex-shrink-0" />
                 <div className="text-slate-400 text-sm">
-                  <p>123 Logistics Avenue</p>
-                  <p>New York, NY 10001</p>
+                  <p>16 dunvegan crescent</p>
+                  <p>Brampton, ON, L7A2Y3</p>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-gold-400 flex-shrink-0" />
                 <a
-                  href="tel:+15551234567"
+                  href="tel:+19099721106"
                   className="text-slate-400 hover:text-gold-400 transition-colors duration-200 text-sm"
                 >
-                  +1 (555) 123-4567
+                  +1 9099721106
                 </a>
               </div>
               <div className="flex items-center space-x-3">
@@ -119,7 +144,7 @@ const Footer = () => {
                   href="mailto:info@anyferight.com"
                   className="text-slate-400 hover:text-gold-400 transition-colors duration-200 text-sm"
                 >
-                  info@anyferight.com
+               info@anyfreightlogistic.com
                 </a>
               </div>
             </div>
@@ -127,16 +152,23 @@ const Footer = () => {
             <div className="mt-8 p-4 glass-effect rounded-lg">
               <h5 className="text-sm font-semibold text-slate-100 mb-2">Stay Updated</h5>
               <p className="text-xs text-slate-400 mb-3">Get logistics insights & updates</p>
-              <div className="flex">
+              <form className="flex" onSubmit={handleSubscribe}>
                 <input
                   type="email"
                   placeholder="Your email"
+                  value={subscriberEmail}
+                  onChange={e => setSubscriberEmail(e.target.value)}
+                  required
                   className="flex-1 px-3 py-2 bg-royal-800/50 border border-slate-600/50 rounded-l-lg text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:border-gold-400"
                 />
-                <button className="px-4 py-2 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 text-royal-950 rounded-r-lg text-sm font-semibold transition-all duration-200">
-                  →
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="px-4 py-2 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 text-royal-950 rounded-r-lg text-sm font-semibold transition-all duration-200"
+                >
+                  {loading ? '...' : '→'}
                 </button>
-              </div>
+              </form>
             </div>
           </div>
         </div>

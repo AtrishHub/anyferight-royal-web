@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { Package, Truck, MapPin, Calendar, DollarSign, Clock } from 'lucide-react';
+import emailjs from 'emailjs-com';
 
 const GetQuote = () => {
   const quoteRef = useRef<HTMLDivElement>(null);
@@ -58,11 +59,55 @@ const GetQuote = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Quote request submitted:', formData);
-    alert('Thank you for your quote request! We will get back to you within 24 hours with a detailed proposal.');
-    // Reset form or redirect as needed
+    try {
+      const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID2;
+      const USER_ID = import.meta.env.VITE_EMAILJS_USER_ID;
+
+      await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          company: formData.company,
+          serviceType: formData.serviceType,
+          origin: formData.origin,
+          destination: formData.destination,
+          shipmentType: formData.shipmentType,
+          weight: formData.weight,
+          dimensions: formData.dimensions,
+          value: formData.value,
+          urgency: formData.urgency,
+          additionalServices: formData.additionalServices.join(', '),
+          description: formData.description
+        },
+        USER_ID
+      );
+      alert('Thank you for your quote request! We will get back to you within 24 hours with a detailed proposal.');
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        company: '',
+        serviceType: '',
+        origin: '',
+        destination: '',
+        shipmentType: '',
+        weight: '',
+        dimensions: '',
+        value: '',
+        urgency: '',
+        additionalServices: [],
+        description: ''
+      });
+    } catch (error) {
+      console.error('EmailJS error:', error);
+      alert('Sorry, there was an error sending your quote request. Please try again later.');
+    }
   };
 
   const steps = [
@@ -123,7 +168,7 @@ const GetQuote = () => {
             <div ref={imageRef} className="mt-8 relative">
               <div className="absolute inset-0 bg-gradient-to-r from-gold-500/20 to-blue-500/20 rounded-2xl blur-xl"></div>
               <img
-                src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                src="./getquoteimg2.png"
                 alt="Professional logistics team ready to help"
                 className="relative z-10 w-full h-64 object-cover rounded-2xl shadow-2xl"
               />

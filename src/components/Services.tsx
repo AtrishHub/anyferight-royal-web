@@ -149,12 +149,7 @@ const Services = () => {
                   ))}
                 </ul>
 
-                <div className="pt-6 border-t border-slate-700/50">
-                  <span className="text-gold-400 font-semibold text-sm group-hover:underline transition-all duration-300 flex items-center">
-                    Learn More 
-                    <ArrowLeft className="h-4 w-4 ml-2 rotate-180 group-hover:translate-x-1 transition-transform duration-300" />
-                  </span>
-                </div>
+               
               </div>
             </div>
           ))}

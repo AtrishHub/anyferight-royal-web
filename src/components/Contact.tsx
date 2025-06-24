@@ -1,8 +1,8 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import emailjs from 'emailjs-com';
 
 const Contact = () => {
   const contactRef = useRef<HTMLDivElement>(null);
@@ -46,34 +46,55 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Thank you for your inquiry! We will get back to you soon.');
-    setFormData({
-      name: '',
-      email: '',
-      company: '',
-      service: '',
-      message: ''
-    });
+    try {
+      // Replace these with your actual EmailJS service, template, and user IDs
+      const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID1;
+      const USER_ID = import.meta.env.VITE_EMAILJS_USER_ID;
+
+      await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          service: formData.service,
+          message: formData.message
+        },
+        USER_ID
+      );
+      alert('Thank you for your inquiry! We will get back to you soon.');
+      setFormData({
+        name: '',
+        email: '',
+        company: '',
+        service: '',
+        message: ''
+      });
+    } catch (error) {
+      console.error('EmailJS error:', error);
+      alert('Sorry, there was an error sending your message. Please try again later.');
+    }
   };
 
   const contactInfo = [
     {
       icon: MapPin,
       title: "Global Headquarters",
-      details: ["123 Logistics Avenue", "International Trade Center", "New York, NY 10001"]
+      details: ["16 dunvegan crescent", " Brampton, ON, L7A2Y3"]
     },
     {
       icon: Phone,
       title: "Phone Support",
-      details: ["+1 (555) 123-4567", "+1 (555) 987-6543", "Toll Free: 1-800-FREIGHT"]
+      details: ["+1 9099721106 "]
     },
     {
       icon: Mail,
       title: "Email Contact",
-      details: ["info@anyferight.com", "sales@anyferight.com", "support@anyferight.com"]
+      details: ["info@anyfreightlogistic.com"]
     },
     {
       icon: Clock,
@@ -229,7 +250,7 @@ const Contact = () => {
               <h4 className="text-2xl font-bold gradient-text mb-4">Emergency Logistics?</h4>
               <p className="text-slate-300 mb-6">Need urgent shipping solutions? Our emergency team is ready 24/7</p>
               <a
-                href="tel:+15551234567"
+                href="tel:+19099721106"
                 className="inline-block bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 hover:scale-105"
               >
                 Call Emergency Line
