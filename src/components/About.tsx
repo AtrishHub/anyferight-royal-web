@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -124,10 +123,10 @@ const About = () => {
         <div ref={heroRef} className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
           <div>
             <h2 className="text-4xl md:text-5xl font-bold mb-8">
-              <span className="gradient-text">About Anyferight</span>
+              <span className="gradient-text">About Anyfreight</span>
             </h2>
             <p className="text-xl text-slate-300 mb-6 leading-relaxed">
-              For over 25 years, Anyferight has been at the forefront of global logistics, 
+              For over 25 years, Anyfreight has been at the forefront of global logistics, 
               connecting businesses worldwide with reliable, efficient, and innovative shipping solutions.
             </p>
             <p className="text-lg text-slate-400 mb-8 leading-relaxed">
@@ -163,7 +162,7 @@ const About = () => {
         </div>
 
         <div ref={featuresRef} className="space-y-8">
-          <h3 className="text-3xl font-bold gradient-text mb-8 text-center">Why Choose Anyferight</h3>
+          <h3 className="text-3xl font-bold gradient-text mb-8 text-center">Why Choose Anyfreight</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {features.map((feature, index) => (
               <div

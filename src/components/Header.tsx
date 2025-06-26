@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Menu, X, Truck } from 'lucide-react';
@@ -68,7 +67,7 @@ const Header = () => {
             </div>
             <div>
               <h1 className="text-xl lg:text-2xl font-bold gradient-text group-hover:scale-105 transition-transform duration-300">
-                Anyferight
+                Anyfreight
               </h1>
               <p className="text-xs text-slate-400 -mt-1">Logistics</p>
             </div>

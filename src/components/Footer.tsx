@@ -61,7 +61,7 @@ const Footer = () => {
                 <div className="absolute -top-1 -right-1 w-3 h-3 bg-gold-400 rounded-full animate-pulse"></div>
               </div>
               <div>
-                <h3 className="text-xl font-bold gradient-text">Anyferight</h3>
+                <h3 className="text-xl font-bold gradient-text">Anyfreight</h3>
                 <p className="text-xs text-slate-400 -mt-1">Logistics</p>
               </div>
             </div>
@@ -141,7 +141,7 @@ const Footer = () => {
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-gold-400 flex-shrink-0" />
                 <a
-                  href="mailto:info@anyferight.com"
+                  href="mailto:info@anyfreight.com"
                   className="text-slate-400 hover:text-gold-400 transition-colors duration-200 text-sm"
                 >
                info@anyfreightlogistic.com
@@ -176,7 +176,7 @@ const Footer = () => {
         <div className="py-8 border-t border-slate-800/50">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-slate-400 text-sm">
-              © {currentYear} Anyferight Logistics. All rights reserved.
+              © {currentYear} Anyfreight Logistics. All rights reserved.
             </div>
             <div className="flex items-center space-x-6 text-sm text-slate-400">
               <a href="#" className="hover:text-gold-400 transition-colors duration-200">
