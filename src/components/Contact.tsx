@@ -114,30 +114,30 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" ref={contactRef} className="py-20 bg-gradient-to-b from-royal-900 to-royal-950 relative overflow-hidden">
-      <div className="absolute inset-0 opacity-20" style={{
-        backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23334155' fill-opacity='0.1'%3E%3Cpath d='M30 30c16.569 0 30-13.431 30-30H30v30z'/%3E%3C/g%3E%3C/svg%3E")`
+    <section id="contact" ref={contactRef} className="py-20 bg-gradient-to-b from-white to-royal-100 relative overflow-hidden">
+      <div className="absolute inset-0 opacity-10" style={{
+        backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230ea5e9' fill-opacity='0.1'%3E%3Cpath d='M30 30c16.569 0 30-13.431 30-30H30v30z'/%3E%3C/g%3E%3C/svg%3E")`
       }}></div>
-      <div className="absolute top-0 right-0 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl"></div>
+      <div className="absolute top-0 right-0 w-96 h-96 bg-gold-100/30 rounded-full blur-3xl"></div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="gradient-text">Get In Touch</span>
           </h2>
-          <p className="text-xl text-slate-300 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Ready to streamline your logistics? Let's discuss how we can help your business grow.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          <div ref={formRef} className="glass-effect rounded-3xl p-8 lg:p-12 hover:bg-white/5 transition-all duration-300">
+          <div ref={formRef} className="glass-effect rounded-3xl p-8 lg:p-12 hover:bg-gray-100 transition-all duration-300">
             <h3 className="text-2xl font-bold gradient-text mb-8">Send us a Message</h3>
             
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-slate-300 font-medium mb-2">
+                  <label htmlFor="name" className="block text-gray-600 font-medium mb-2">
                     Full Name *
                   </label>
                   <input
@@ -147,12 +147,12 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 bg-royal-800/50 border border-slate-600/50 rounded-lg text-slate-100 placeholder-slate-400 focus:outline-none focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition-all duration-200"
+                    className="w-full px-4 py-3 bg-royal-100/50 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition-all duration-200"
                     placeholder="Enter your full name"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-slate-300 font-medium mb-2">
+                  <label htmlFor="email" className="block text-gray-600 font-medium mb-2">
                     Email Address *
                   </label>
                   <input
@@ -162,7 +162,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 bg-royal-800/50 border border-slate-600/50 rounded-lg text-slate-100 placeholder-slate-400 focus:outline-none focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition-all duration-200"
+                    className="w-full px-4 py-3 bg-royal-100/50 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition-all duration-200"
                     placeholder="Enter your email"
                   />
                 </div>
@@ -170,7 +170,7 @@ const Contact = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="company" className="block text-slate-300 font-medium mb-2">
+                  <label htmlFor="company" className="block text-gray-600 font-medium mb-2">
                     Company Name
                   </label>
                   <input
@@ -179,12 +179,12 @@ const Contact = () => {
                     name="company"
                     value={formData.company}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-royal-800/50 border border-slate-600/50 rounded-lg text-slate-100 placeholder-slate-400 focus:outline-none focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition-all duration-200"
+                    className="w-full px-4 py-3 bg-royal-100/50 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition-all duration-200"
                     placeholder="Your company name"
                   />
                 </div>
                 <div>
-                  <label htmlFor="service" className="block text-slate-300 font-medium mb-2">
+                  <label htmlFor="service" className="block text-gray-600 font-medium mb-2">
                     Service Interest
                   </label>
                   <select
@@ -192,7 +192,7 @@ const Contact = () => {
                     name="service"
                     value={formData.service}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-royal-800/50 border border-slate-600/50 rounded-lg text-slate-100 focus:outline-none focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition-all duration-200"
+                    className="w-full px-4 py-3 bg-royal-100/50 border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition-all duration-200"
                   >
                     <option value="">Select a service</option>
                     <option value="ground">Ground Transportation</option>
@@ -206,7 +206,7 @@ const Contact = () => {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-slate-300 font-medium mb-2">
+                <label htmlFor="message" className="block text-gray-600 font-medium mb-2">
                   Message *
                 </label>
                 <textarea
@@ -216,14 +216,14 @@ const Contact = () => {
                   onChange={handleInputChange}
                   required
                   rows={6}
-                  className="w-full px-4 py-3 bg-royal-800/50 border border-slate-600/50 rounded-lg text-slate-100 placeholder-slate-400 focus:outline-none focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition-all duration-200 resize-none"
+                  className="w-full px-4 py-3 bg-royal-100/50 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition-all duration-200 resize-none"
                   placeholder="Tell us about your logistics needs..."
                 ></textarea>
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 text-royal-950 px-8 py-4 rounded-lg font-semibold transition-all duration-200 royal-glow hover:scale-105"
+                className="w-full bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-200 royal-glow hover:scale-105"
               >
                 Send Message
               </button>
@@ -234,19 +234,19 @@ const Contact = () => {
             {contactInfo.map((info, index) => (
               <div
                 key={index}
-                className="glass-effect rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 group"
+                className="glass-effect rounded-2xl p-6 hover:bg-gray-100 transition-all duration-300 group"
               >
                 <div className="flex items-start space-x-4">
                   <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-gold-500 to-gold-600 rounded-lg flex-shrink-0 group-hover:scale-110 transition-transform duration-200">
-                    <info.icon className="h-6 w-6 text-royal-950" />
+                    <info.icon className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h4 className="text-xl font-semibold text-slate-100 mb-3 group-hover:text-gold-400 transition-colors duration-200">
+                    <h4 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-gold-500 transition-colors duration-200">
                       {info.title}
                     </h4>
                     <div className="space-y-1">
                       {info.details.map((detail, detailIndex) => (
-                        <p key={detailIndex} className="text-slate-300">
+                        <p key={detailIndex} className="text-gray-600">
                           {detail}
                         </p>
                       ))}
@@ -256,9 +256,9 @@ const Contact = () => {
               </div>
             ))}
 
-            <div className="glass-effect rounded-2xl p-8 text-center hover:bg-white/10 transition-all duration-300 royal-glow">
+            <div className="glass-effect rounded-2xl p-8 text-center hover:bg-gray-100 transition-all duration-300 royal-glow">
               <h4 className="text-2xl font-bold gradient-text mb-4">Emergency Logistics?</h4>
-              <p className="text-slate-300 mb-6">Need urgent shipping solutions? Our emergency team is ready 24/7</p>
+              <p className="text-gray-600 mb-6">Need urgent shipping solutions? Our emergency team is ready 24/7</p>
               <a
                 href={`tel:${phoneNumber}`}
                 onClick={handleEmergencyClick}
@@ -272,25 +272,25 @@ const Contact = () => {
       </div>
 
       {isPopupVisible && (
-        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 transition-opacity duration-300">
-          <div className="bg-royal-950 p-8 rounded-2xl shadow-2xl text-center relative border border-gold-500/30 w-11/12 max-w-md">
+        <div className="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-50 transition-opacity duration-300">
+          <div className="bg-white p-8 rounded-2xl shadow-2xl text-center relative border border-gold-500/30 w-11/12 max-w-md">
             <button
               onClick={() => setIsPopupVisible(false)}
-              className="absolute top-3 right-3 text-slate-500 hover:text-gold-400 transition-colors"
+              className="absolute top-3 right-3 text-gray-500 hover:text-gold-500 transition-colors"
               aria-label="Close popup"
             >
               <X className="h-6 w-6" />
             </button>
             <h3 className="text-xl font-bold gradient-text mb-4">Emergency Contact</h3>
-            <p className="text-slate-300 mb-6">For immediate assistance, please call the number below.</p>
-            <div className="bg-royal-900/50 p-4 rounded-lg border border-slate-700">
-              <p className="text-3xl font-bold text-white tracking-widest">
+            <p className="text-gray-600 mb-6">For immediate assistance, please call the number below.</p>
+            <div className="bg-royal-100/80 p-4 rounded-lg border border-gray-300">
+              <p className="text-3xl font-bold text-gray-900 tracking-widest">
                 {phoneNumber}
               </p>
             </div>
             <a 
               href={`tel:${phoneNumber}`}
-              className="mt-6 inline-block bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 text-royal-950 px-6 py-3 rounded-lg font-semibold transition-all duration-200 hover:scale-105"
+              className="mt-6 inline-block bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 hover:scale-105"
             >
               Call Now
             </a>

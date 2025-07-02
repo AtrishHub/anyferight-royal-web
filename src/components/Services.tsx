@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -103,16 +102,16 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" ref={servicesRef} className="py-20 bg-gradient-to-b from-black to-gray-900 relative overflow-hidden">
-      <div className="absolute top-1/4 left-1/3 w-80 h-80 bg-gold-500/5 rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-1/4 right-1/3 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl animate-pulse"></div>
+    <section id="services" ref={servicesRef} className="py-20 bg-gradient-to-b from-white to-royal-100 relative overflow-hidden">
+      <div className="absolute top-1/4 left-1/3 w-80 h-80 bg-gold-100/30 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-1/4 right-1/3 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl animate-pulse"></div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
           <h2 ref={titleRef} className="text-4xl md:text-5xl font-bold mb-6">
             <span className="gradient-text">Our Services</span>
           </h2>
-          <p className="text-xl text-slate-300 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Comprehensive logistics solutions tailored to meet your unique business requirements
           </p>
         </div>
@@ -121,19 +120,19 @@ const Services = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="group glass-effect rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-500 hover:scale-105 hover:royal-glow cursor-pointer backdrop-blur-sm p-8"
+              className="group glass-effect rounded-2xl overflow-hidden hover:bg-gray-100 transition-all duration-500 hover:scale-105 hover:royal-glow cursor-pointer backdrop-blur-sm p-8"
             >
               <div className="mb-6">
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-gold-500 to-gold-600 rounded-xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <service.icon className="h-8 w-8 text-black" />
+                  <service.icon className="h-8 w-8 text-white" />
                 </div>
               </div>
 
               <div>
-                <h3 className="text-2xl font-bold text-slate-100 mb-3 group-hover:text-gold-400 transition-colors duration-300">
+                <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-gold-500 transition-colors duration-300">
                   {service.title}
                 </h3>
-                <p className="text-slate-300 leading-relaxed mb-6">
+                <p className="text-gray-600 leading-relaxed mb-6">
                   {service.description}
                 </p>
 
@@ -141,7 +140,7 @@ const Services = () => {
                   {service.features.map((feature, featureIndex) => (
                     <li
                       key={featureIndex}
-                      className="flex items-center text-slate-400 text-sm"
+                      className="flex items-center text-gray-500 text-sm"
                     >
                       <div className="w-2 h-2 bg-gold-400 rounded-full mr-3 flex-shrink-0 group-hover:scale-125 transition-transform duration-300"></div>
                       {feature}

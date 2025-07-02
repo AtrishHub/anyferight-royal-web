@@ -69,7 +69,7 @@ const Header = () => {
               <h1 className="text-xl lg:text-2xl font-bold gradient-text group-hover:scale-105 transition-transform duration-300">
                 Anyfreight
               </h1>
-              <p className="text-xs text-slate-400 -mt-1">Logistics</p>
+              <p className="text-xs text-black -mt-1">Logistics</p>
             </div>
           </div>
 
@@ -79,7 +79,7 @@ const Header = () => {
               <button
                 key={item.name}
                 onClick={() => handleNavigation(item.href)}
-                className="text-slate-300 hover:text-gold-400 transition-all duration-300 font-medium relative group px-2 py-1"
+                className="text-black-300 hover:text-gold-400 transition-all duration-300 font-medium relative group px-2 py-1"
               >
                 {item.name}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold-400 transition-all duration-300 group-hover:w-full"></span>
@@ -118,7 +118,7 @@ const Header = () => {
                 <button
                   key={item.name}
                   onClick={() => handleNavigation(item.href)}
-                  className="text-slate-300 hover:text-gold-400 transition-colors duration-300 font-medium py-2 text-left"
+                  className="text-black hover:text-gold-400 transition-colors duration-300 font-medium py-2 text-left"
                 >
                   {item.name}
                 </button>
