@@ -1,11 +1,15 @@
 import React from 'react';
-import { Truck, MapPin, Mail, Phone } from 'lucide-react';
+import { Truck, MapPin, Mail, Phone, InstagramIcon, LinkedinIcon, FacebookIcon } from 'lucide-react';
 import emailjs from 'emailjs-com';
+import { Link } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const [subscriberEmail, setSubscriberEmail] = React.useState('');
   const [loading, setLoading] = React.useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -30,11 +34,54 @@ const Footer = () => {
     }
   };
 
+  const handleNavigation = (href: string) => {
+    if (href === '/') {
+      if (location.pathname !== '/') {
+        navigate('/');
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+      return;
+    }
+    if (href.startsWith('#')) {
+      if (location.pathname !== '/') {
+        navigate('/');
+        setTimeout(() => {
+          const element = document.querySelector(href);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
+      } else {
+        const element = document.querySelector(href);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    } else if (href.startsWith('/#')) {
+      const id = href.slice(1); // remove leading '/'
+      if (location.pathname !== '/') {
+        navigate('/');
+        setTimeout(() => {
+          const element = document.querySelector(id);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
+      } else {
+        const element = document.querySelector(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    }
+  };
+
   const quickLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'Services', href: '#services' },
-    { name: 'About', href: '#about' },
-    { name: 'Contact', href: '#contact' }
+    { name: 'Home', href: '/' },
+    { name: 'Services', href: '/#services' },
+    { name: 'About', href: '/#about' },
+    { name: 'Contact', href: '/#contact' }
   ];
 
   const services = [
@@ -47,9 +94,9 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-royal-950 border-t border-slate-800/50 relative overflow-hidden">
-      <div className="absolute inset-0 opacity-30" style={{
-        backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23334155' fill-opacity='0.05'%3E%3Cpath d='M20 20c0 11.046-8.954 20-20 20v20h20v-20c11.046 0 20-8.954 20-20H20z'/%3E%3C/g%3E%3C/svg%3E")`
+    <footer className="bg-white border-t border-gray-200 relative overflow-hidden">
+      <div className="absolute inset-0 opacity-20" style={{
+        backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%230ea5e9' fill-opacity='0.05'%3E%3Cpath d='M20 20c0 11.046-8.954 20-20 20v20h20v-20c11.046 0 20-8.954 20-20H20z'/%3E%3C/g%3E%3C/svg%3E")`
       }}></div>
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -62,56 +109,60 @@ const Footer = () => {
               </div>
               <div>
                 <h3 className="text-xl font-bold gradient-text">Anyfreight</h3>
-                <p className="text-xs text-slate-400 -mt-1">Logistics</p>
+                <p className="text-xs text-gray-500 -mt-1">Logistics</p>
               </div>
             </div>
-            <p className="text-slate-400 mb-6 leading-relaxed">
+            <p className="text-gray-600 mb-6 leading-relaxed">
               Your trusted partner in global logistics solutions. Connecting businesses worldwide with reliable, efficient, and innovative transportation services.
             </p>
             <div className="flex space-x-4">
               <a
                 href="#"
-                className="w-10 h-10 bg-royal-800 hover:bg-gold-500/20 rounded-lg flex items-center justify-center transition-all duration-200 hover:scale-110 group"
+                aria-label="Instagram"
+                className="w-10 h-10 bg-royal-100 hover:bg-gold-100 rounded-lg flex items-center justify-center transition-all duration-200 hover:scale-110 group"
               >
-                <div className="w-5 h-5 bg-slate-400 group-hover:bg-gold-400 transition-colors duration-200 rounded-sm"></div>
+                <InstagramIcon className="w-5 h-5 text-gray-400 group-hover:text-pink-400 transition-colors duration-200" />
               </a>
               <a
                 href="#"
-                className="w-10 h-10 bg-royal-800 hover:bg-gold-500/20 rounded-lg flex items-center justify-center transition-all duration-200 hover:scale-110 group"
+                aria-label="X (Twitter)"
+                className="w-10 h-10 bg-royal-100 hover:bg-gold-100 rounded-lg flex items-center justify-center transition-all duration-200 hover:scale-110 group"
               >
-                <div className="w-5 h-5 bg-slate-400 group-hover:bg-gold-400 transition-colors duration-200 rounded-sm"></div>
+                <FacebookIcon className="w-5 h-5 text-gray-400 group-hover:text-blue-400 transition-colors duration-200" />
               </a>
               <a
-                href="#"
-                className="w-10 h-10 bg-royal-800 hover:bg-gold-500/20 rounded-lg flex items-center justify-center transition-all duration-200 hover:scale-110 group"
+                href="https://www.linkedin.com/company/anyfreightlogistics/"
+                aria-label="LinkedIn"
+                className="w-10 h-10 bg-royal-100 hover:bg-gold-100 rounded-lg flex items-center justify-center transition-all duration-200 hover:scale-110 group"
               >
-                <div className="w-5 h-5 bg-slate-400 group-hover:bg-gold-400 transition-colors duration-200 rounded-sm"></div>
+                <LinkedinIcon className="w-5 h-5 text-gray-400 group-hover:text-blue-400 transition-colors duration-200" />
               </a>
             </div>
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold text-slate-100 mb-6">Quick Links</h4>
+            <h4 className="text-lg font-semibold text-gray-900 mb-6">Quick Links</h4>
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
-                  <a
-                    href={link.href}
-                    className="text-slate-400 hover:text-gold-400 transition-colors duration-200 hover:translate-x-1 inline-block"
+                  <button
+                    type="button"
+                    onClick={() => handleNavigation(link.href)}
+                    className="text-gray-600 hover:text-gold-500 transition-colors duration-200 hover:translate-x-1 inline-block bg-transparent border-none p-0 m-0 cursor-pointer focus:outline-none"
                   >
                     {link.name}
-                  </a>
+                  </button>
                 </li>
               ))}
             </ul>
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold text-slate-100 mb-6">Services</h4>
+            <h4 className="text-lg font-semibold text-gray-900 mb-6">Services</h4>
             <ul className="space-y-3">
               {services.map((service, index) => (
                 <li key={index}>
-                  <span className="text-slate-400 hover:text-gold-400 transition-colors duration-200 cursor-pointer hover:translate-x-1 inline-block">
+                  <span className="text-gray-600 hover:text-gold-500 transition-colors duration-200 cursor-pointer hover:translate-x-1 inline-block">
                     {service}
                   </span>
                 </li>
@@ -120,11 +171,11 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold text-slate-100 mb-6">Contact Info</h4>
+            <h4 className="text-lg font-semibold text-gray-900 mb-6">Contact Info</h4>
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-gold-400 mt-1 flex-shrink-0" />
-                <div className="text-slate-400 text-sm">
+                <div className="text-gray-600 text-sm">
                   <p>16 dunvegan crescent</p>
                   <p>Brampton, ON, L7A2Y3</p>
                 </div>
@@ -133,7 +184,7 @@ const Footer = () => {
                 <Phone className="h-5 w-5 text-gold-400 flex-shrink-0" />
                 <a
                   href="tel:+12898138987"
-                  className="text-slate-400 hover:text-gold-400 transition-colors duration-200 text-sm"
+                  className="text-gray-600 hover:text-gold-500 transition-colors duration-200 text-sm"
                 >
                   +12898138987
                 </a>
@@ -142,7 +193,7 @@ const Footer = () => {
                 <Mail className="h-5 w-5 text-gold-400 flex-shrink-0" />
                 <a
                   href="mailto:info@anyfreight.com"
-                  className="text-slate-400 hover:text-gold-400 transition-colors duration-200 text-sm"
+                  className="text-gray-600 hover:text-gold-500 transition-colors duration-200 text-sm"
                 >
                info@anyfreightlogistic.com
                 </a>
@@ -150,8 +201,8 @@ const Footer = () => {
             </div>
 
             <div className="mt-8 p-4 glass-effect rounded-lg">
-              <h5 className="text-sm font-semibold text-slate-100 mb-2">Stay Updated</h5>
-              <p className="text-xs text-slate-400 mb-3">Get logistics insights & updates</p>
+              <h5 className="text-sm font-semibold text-gray-900 mb-2">Stay Updated</h5>
+              <p className="text-xs text-gray-500 mb-3">Get logistics insights & updates</p>
               <form className="flex" onSubmit={handleSubscribe}>
                 <input
                   type="email"
@@ -159,12 +210,12 @@ const Footer = () => {
                   value={subscriberEmail}
                   onChange={e => setSubscriberEmail(e.target.value)}
                   required
-                  className="flex-1 px-3 py-2 bg-royal-800/50 border border-slate-600/50 rounded-l-lg text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:border-gold-400"
+                  className="flex-1 px-3 py-2 bg-royal-100/50 border border-gray-300 rounded-l-lg text-gray-900 placeholder-gray-400 text-sm focus:outline-none focus:border-gold-400"
                 />
                 <button
                   type="submit"
                   disabled={loading}
-                  className="px-4 py-2 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 text-royal-950 rounded-r-lg text-sm font-semibold transition-all duration-200"
+                  className="px-4 py-2 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 text-white rounded-r-lg text-sm font-semibold transition-all duration-200"
                 >
                   {loading ? '...' : '→'}
                 </button>
@@ -173,21 +224,21 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="py-8 border-t border-slate-800/50">
+        <div className="py-8 border-t border-gray-200">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="text-slate-400 text-sm">
+            <div className="text-gray-500 text-sm">
               © {currentYear} Anyfreight Logistics. All rights reserved.
             </div>
-            <div className="flex items-center space-x-6 text-sm text-slate-400">
-              <a href="#" className="hover:text-gold-400 transition-colors duration-200">
+            <div className="flex items-center space-x-6 text-sm text-gray-500">
+              <Link to="/privacy-policy" className="hover:text-gold-500 transition-colors duration-200">
                 Privacy Policy
-              </a>
-              <a href="#" className="hover:text-gold-400 transition-colors duration-200">
+              </Link>
+              <Link to="/terms-of-service" className="hover:text-gold-500 transition-colors duration-200">
                 Terms of Service
-              </a>
-              <a href="#" className="hover:text-gold-400 transition-colors duration-200">
+              </Link>
+              <Link to="/cookie-policy" className="hover:text-gold-500 transition-colors duration-200">
                 Cookie Policy
-              </a>
+              </Link>
             </div>
           </div>
         </div>

@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -51,7 +50,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-black text-slate-50 overflow-x-hidden">
+    <div className="min-h-screen bg-white text-gray-900 overflow-x-hidden">
       <Header />
       <main>
         <Hero />
